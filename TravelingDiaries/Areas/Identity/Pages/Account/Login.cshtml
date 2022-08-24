@@ -19,20 +19,22 @@
     display:none !important;
     }
 </style>
-
-<h1>@ViewData["Title"]</h1>
+<br></br><br></br><br></br><br></br>
+<h1 style="color:white;text-align:center; "> Login To Travelling Diaries</h1>
+<br></br>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" style="margin-left:370px;">
         <section>
             <form id="account" method="post">
              
-                <hr />
+      
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-floating">
                     <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
                     <label asp-for="Input.Email" class="form-label"></label>
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
+                <br></br>
                 <div class="form-floating">
                     <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
                     <label asp-for="Input.Password" class="form-label"></label>
@@ -40,7 +42,7 @@
                 </div>
                 <div>
                     <div class="checkbox">
-                        <label asp-for="Input.RememberMe" class="form-label">
+                        <label style="color:white;" asp-for="Input.RememberMe" class="form-label">
                             <input class="form-check-input" asp-for="Input.RememberMe" />
                             @Html.DisplayNameFor(m => m.Input.RememberMe)
                         </label>
@@ -48,6 +50,10 @@
                 </div>
                 <div>
                     <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                </div>
+                <br>
+                   <div>
+                    <button  type="submit" class="w-100 btn btn-lg btn-danger"><a asp-action="Index" asp-controller="Home" style="text-decoration:none;color:white;">Home </a></button>
                 </div>
          
             </form>

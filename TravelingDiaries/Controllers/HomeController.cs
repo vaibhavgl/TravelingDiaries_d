@@ -25,10 +25,21 @@ namespace TravelingDiaries.Controllers
 
         }
 
-        public IActionResult Search(string Value)
+        public IActionResult Search(string? Value)
         {
+            if (Value == null) {
+
+                return RedirectToAction("Index");
+
+            }
             var place = placeRepository.GetAllPlaces().Where(x=>x.PlaceName.ToLower().Contains(Value.ToLower()));
             int count = place.Count();
+            ViewBag.Pic = "https://images.pexels.com/photos/457881/pexels-photo-457881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+            if (count == 0) {
+
+                ViewBag.Pic = "https://images.pexels.com/photos/3323236/pexels-photo-3323236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+            }
+
             ViewBag.CountPlaces = count;
             return View(place);
         }

@@ -3,12 +3,24 @@
 @{
     ViewData["Title"] = "CM";
 }
+<style>
+    body{  
+        color:black;
+               width:100%;
+    min-height:100vh;
+    padding:1%;
+    background-image:url( https://images.pexels.com/photos/7582013/pexels-photo-7582013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-position:center;
+    background-size:cover;
+    }
+   
+</style>
 
 
 <partial name="_Notifications"></partial>
-<table class="table table-hover" style=" color:white;">
+<table class="table table-light " style=" color:black;">
     <thead>
-        <tr>
+        <tr ">
             <th>
                 @Html.DisplayNameFor(model => model.PlaceName)
             </th>
@@ -19,7 +31,8 @@
             <th>
                 @Html.DisplayNameFor(model => model.PackagePrice)
             </th>
-            <th></th>
+            <th>Edit</th>
+                <th>Delete</th>
         </tr>
     </thead>
     <tbody>
