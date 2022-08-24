@@ -17,10 +17,10 @@
 </style>
 
 
-<partial name="_Notifications"></partial>
+<partial name="_Notifications">
 <table class="table table-light " style=" color:black;">
     <thead>
-        <tr ">
+        <tr>
             <th>
                 @Html.DisplayNameFor(model => model.PlaceName)
             </th>
@@ -36,6 +36,7 @@
         </tr>
     </thead>
     <tbody>
+
 @foreach (var item in Model) {
         <tr>
             <td>
@@ -49,12 +50,13 @@
                 @Html.DisplayFor(modelItem => item.PackagePrice)
             </td>
           <td>
-            <button class="btn btn-warning">  <a style="text-decoration:none;color:white;" asp-action="EditPlace" asp-route-id="@item.PlaceID">Edit</a></button>
+            <button class="btn btn-warning">  <a asp-action="EditPlace" asp-route-id="@item.PlaceID" style="text-decoration:none;color:white;" >Edit</a></button>
           </td>
           
               <td>
                 <button class="btn btn-danger">  <a style="text-decoration:none;color:white;" asp-action="Delete" asp-route-id="@item.PlaceID" asp-controller="ContentManagement">Delete</a></button>
             </td>
+          
         </tr>
 }
     </tbody>

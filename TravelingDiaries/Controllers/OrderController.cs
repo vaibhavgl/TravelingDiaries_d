@@ -38,7 +38,7 @@ namespace TravelingDiaries.Controllers
             {
                 _orderRepository.CreateOrder(order);
                 _shoppingCart.ClearCart();
-                return RedirectToAction("CheckoutComplete");
+                return RedirectToAction("CheckoutComplete",order);
 
             }
 
@@ -46,13 +46,14 @@ namespace TravelingDiaries.Controllers
         }
 
 
-        public IActionResult CheckoutComplete()
+        public IActionResult CheckoutComplete(Order order)
         {
 
-            ViewBag.CheckoutCompleteMessage = "Thanks for the order ! Enjoy the pie";
-            return View();
+           
+            return View(order);
 
         }
+   
 
        
     }

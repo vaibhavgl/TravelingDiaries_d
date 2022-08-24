@@ -1,0 +1,97 @@
+﻿@*@model IEnumerable<TripAdvisor.Models.Hotel>
+
+@{
+    ViewData["Title"] = "GetAllHotels";
+}
+
+ <style>
+        body{
+             background-image: url("https://img.freepik.com/free-photo/closeup-concrete-wall-texture-background_1017-24490.jpg?w=2000");
+ background-color: #cccccc;
+           
+        
+        }
+    </style>
+
+<h1>Choose Your Luxirious Stay !!</h1>
+
+<body>
+    @foreach(var hotel in Model){
+
+<div class="card border-danger mb-3" style="max-width: 20rem; display:inline-block;margin:100px;">
+  <img class="card-img-top" src="@hotel.ImageUrl" alt="Card image cap" style="height:213px">
+  <div class="card-body">
+    <h5 class="card-title"><strong>@hotel.Name</strong></h5>
+   <div style=" height:96px;width:288px;"><p class="card-text">@hotel.ShortDescription</p></div> 
+    <h6 class="card-text"><strong> Rs:@hotel.Price</strong></h6>
+
+    <a asp-controller="Hotel" asp-route-id="@hotel.HotelId" asp-action="HotelDetail" class="btn btn-primary">Know More</a>
+  </div>
+</div>
+
+
+
+}
+</body>
+
+
+
+@*
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DestinationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsRoomEmpty)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DestinationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsRoomEmpty)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.HotelId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.HotelId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.HotelId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@

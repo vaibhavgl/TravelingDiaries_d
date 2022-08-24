@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TravelingDiaries.Models;
 using Microsoft.AspNetCore.Identity;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddScoped<IPlaceRepository, PlaceRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
-
+//stripepaymentgateway
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
 //shopping cart constructor
 builder.Services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
@@ -56,6 +58,10 @@ app.UseSession();
 
 
 app.UseRouting();
+StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
+
+
+
 app.UseAuthentication();
 app.UseAuthorization();
 
